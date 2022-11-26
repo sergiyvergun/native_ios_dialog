@@ -110,11 +110,16 @@ public class SwiftNativeIosDialogPlugin: NSObject, FlutterPlugin {
 
         }
         
+        if #available(iOS 12.0, *) {
+            alert.overrideUserInterfaceStyle = boolToTheme(args.value(forKey: "lightTheme") as! Bool)!
+        } else {
+            // Fallback on earlier versions
+        }
+        
         if #available(iOS 13.0, *) {
             if(lightTheme==nil) {
                 }
             else {
-                alert.overrideUserInterfaceStyle = boolToTheme((args.value(forKey: "lightTheme")! as! Bool))!
                 }
          } else {
             // Fallback on earlier versions
