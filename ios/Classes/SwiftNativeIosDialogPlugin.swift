@@ -101,11 +101,11 @@ public class SwiftNativeIosDialogPlugin: NSObject, FlutterPlugin {
         }
         
         if #available(iOS 13.0, *) {
-            if(lightTheme==nil) {
-                }
-            else {
-                let uiStyle: UIUserInterfaceStyle = lightTheme==false ? UIUserInterfaceStyle.dark : UIUserInterfaceStyle.light
-                alert.overrideUserInterfaceStyle = uiStyle
+            
+            if let lightTheme = lightTheme{
+                let uiStyle: UIUserInterfaceStyle = !lightTheme ? UIUserInterfaceStyle.dark : UIUserInterfaceStyle.light
+                let appDelegate=UIApplication.shared.delegate as? FlutterAppDelegate
+                appDelegate?.window.overrideUserInterfaceStyle = uiStyle
                 }
          } else {
             // Fallback on earlier versions
