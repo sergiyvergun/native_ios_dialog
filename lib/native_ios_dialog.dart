@@ -65,14 +65,14 @@ class NativeIosDialog {
   /// The same also applies when all actions are disabled (`onPressed` is null)
   final List<NativeIosDialogButton> actions;
 
-  final Brightness? brightness;
+  final bool? lightTheme;
 
   NativeIosDialog({
     this.title,
     this.message,
     this.style = NativeIosDialogStyle.alert,
     required this.actions,
-    this.brightness,
+    this.lightTheme,
   });
 
   /// Shows the native iOS Dialog and calls the specific `onPressed` handler
