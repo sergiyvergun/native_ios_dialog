@@ -1,7 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 /// DTO for a UIAlertAction
@@ -67,11 +65,15 @@ class NativeIosDialog {
   /// The same also applies when all actions are disabled (`onPressed` is null)
   final List<NativeIosDialogButton> actions;
 
-  NativeIosDialog(
-      { this.title,
-       this.message,
-      this.style = NativeIosDialogStyle.alert,
-      required this.actions});
+  final Brightness? brightness;
+
+  NativeIosDialog({
+    this.title,
+    this.message,
+    this.style = NativeIosDialogStyle.alert,
+    required this.actions,
+    this.brightness,
+  });
 
   /// Shows the native iOS Dialog and calls the specific `onPressed` handler
   ///

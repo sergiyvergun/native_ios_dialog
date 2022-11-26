@@ -98,6 +98,12 @@ public class SwiftNativeIosDialogPlugin: NSObject, FlutterPlugin {
             alert.addAction(alertAction)
 
         }
+        
+        if #available(iOS 13.0, *) {
+            alert.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
+        } else {
+            // Fallback on earlier versions
+        };
 
         guard let controller = controller else {
             result(unavailableError)
