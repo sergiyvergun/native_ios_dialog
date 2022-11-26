@@ -67,14 +67,12 @@ public class SwiftNativeIosDialogPlugin: NSObject, FlutterPlugin {
     }
 
     @available(iOS 12.0, *)
-    private func boolToTheme(_ index: Bool?) -> UIUserInterfaceStyle? {
+    private func boolToTheme(_ index: Bool) -> UIUserInterfaceStyle? {
         switch index {
         case true:
             return UIUserInterfaceStyle.light
         case false:
             return UIUserInterfaceStyle.dark
-        default: return nil
-        
         }
     }
 
@@ -112,8 +110,9 @@ public class SwiftNativeIosDialogPlugin: NSObject, FlutterPlugin {
         }
         
         if #available(iOS 13.0, *) {
-            if(args.value(forKey: "lightTheme")==nil){
-                }else{
+            if(args.value(forKey: "lightTheme")==nil) {
+                }
+            else {
                     alert.overrideUserInterfaceStyle = boolToTheme((args.value(forKey: "lightTheme")! as? Bool))!
                 }
          } else {
