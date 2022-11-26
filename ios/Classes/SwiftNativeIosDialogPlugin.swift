@@ -81,6 +81,7 @@ public class SwiftNativeIosDialogPlugin: NSObject, FlutterPlugin {
         let title = args.value(forKey: "title") as? String ?? nil
         let message = args.value(forKey: "message") as? String ?? nil
         let style = args.value(forKey: "style") as! Int
+        let lightTheme = args.value(forKey: "lightTheme") as? Bool
 
         let alertStyle = indexToAlertStyle(style)
         if alertStyle == nil {
@@ -110,10 +111,10 @@ public class SwiftNativeIosDialogPlugin: NSObject, FlutterPlugin {
         }
         
         if #available(iOS 13.0, *) {
-            if(args.value(forKey: "lightTheme")==nil) {
+            if(lightTheme==nil) {
                 }
             else {
-                    alert.overrideUserInterfaceStyle = boolToTheme((args.value(forKey: "lightTheme")! as! Bool))!
+                alert.overrideUserInterfaceStyle = boolToTheme((args.value(forKey: "lightTheme")! as! Bool))!
                 }
          } else {
             // Fallback on earlier versions
