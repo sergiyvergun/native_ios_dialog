@@ -110,8 +110,8 @@ public class SwiftNativeIosDialogPlugin: NSObject, FlutterPlugin {
 
         }
         
-        if #available(iOS 12.0, *) {
-            alert.overrideUserInterfaceStyle = boolToTheme(args.value(forKey: "lightTheme") as! Bool)!
+        if #available(iOS 13.0, *) {
+            alert.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
         } else {
             // Fallback on earlier versions
         }
