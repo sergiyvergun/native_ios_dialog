@@ -104,8 +104,7 @@ public class SwiftNativeIosDialogPlugin: NSObject, FlutterPlugin {
             
             if let lightTheme = lightTheme{
                 let uiStyle: UIUserInterfaceStyle = !lightTheme ? UIUserInterfaceStyle.dark : UIUserInterfaceStyle.light
-                let appDelegate=UIApplication.shared.delegate as? FlutterAppDelegate
-                appDelegate?.window.overrideUserInterfaceStyle = uiStyle
+                (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.overrideUserInterfaceStyle = uiStyle
                 }
          } else {
             // Fallback on earlier versions
